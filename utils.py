@@ -103,7 +103,7 @@ def training(model, optimizer, train_data_loader, scaler):
         batch_bar.set_postfix(
             accuracy="{}%".format(round((100*num_correct) / (config['batch_size'] * (index + 1)), 4)),
             num_correct=num_correct,
-            loss=f"{training_loss / (index + 1):.4f}",
+            loss= "{}".format(round(training_loss / (index + 1), 4))
             learning_rate=f"{optimizer.param_groups[0]['lr']}"
         )
         
