@@ -46,18 +46,18 @@ class DogBreedNet(nn.Module):
         
         self.flatten_layer = nn.Flatten()
         
-        self.mlp = nn.Sequential(nn.Linear(in_features = 1024 * 8 * 8, out_features=2048),
+        self.mlp = nn.Sequential(nn.Linear(in_features = 1024 * 8 * 8, out_features=1024),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                               
-                              nn.Linear(in_features =2048, out_features=2048),
+                              nn.Linear(in_features =1024, out_features=512),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                                
-                              nn.Linear(in_features = 2048, out_features=2048),
+                              nn.Linear(in_features = 512, out_features=512),
                               nn.ReLU(),
                                
-                              nn.Linear(in_features = 2048, out_features=num_classes)
+                              nn.Linear(in_features = 512, out_features=num_classes)
                               )
     
         self.softmax = nn.Softmax(dim=1)

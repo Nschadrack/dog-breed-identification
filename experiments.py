@@ -130,11 +130,11 @@ valid_loader = DataLoader(dataset=valid_dataset,
 gc.collect()
 torch.cuda.empty_cache()
 # Defining optimizer
-optimizer = optim.SGD(params=model.parameters(), lr=config['base_lr'], weight_decay=config['weight_decay'])
+optimizer = optim.Adam(params=model.parameters(), lr=config['base_lr'], weight_decay=config['weight_decay'])
 
 # Defining scheduler
 scheduler = CyclicLR(optimizer, base_lr=config['base_lr'], max_lr=config['max_lr'], step_size_up=20, 
-                     mode='triangular', cycle_momentum=True)
+                     mode='triangular', cycle_momentum=False)
 
 # Defining scaler
 scaler = GradScaler()
@@ -143,15 +143,15 @@ scaler = GradScaler()
 load_dotenv(os.path.join(os.getcwd(), '.env'))
 wandb.login(key=os.getenv("WANDB_KEY"))
 run = wandb.init(
-    name='Dog-breed-Ablations-{}'.format(uuid.uuid4()),
+    name='{}'.format(uuid.uuid4()),
     reinit=True,
-    project='Dog-breed-ID-Log',
+    project='Dog-breed-ID-Log-V2',
     config=config
 )
 
 # defining path where the model check point will be saved
 # model_checkpoint_path = os.path.join(ROOT_DATA_DIR, "dog_breed_id_checkpoint.pth") # running on kaggle
-model_checkpoint_path = os.path.join('checkpoints', "dog_breed_id_checkpoint.pth") # running on AWS
+model_checkpoint_path = os.path.join('checkpoints', "dog_breed_id_checkpoint_v2.pth") # running on AWS
 
 # implementing training loop for experimentations
 print("\n\n")
@@ -160,7 +160,7 @@ for epoch in range(1, config['epochs'] + 1, 1):
     current_lr = optimizer.param_groups[0]['lr']
     train_accuracy, train_loss = training(model=model, optimizer=optimizer, train_data_loader=train_loader, scaler=scaler)
     
-    with open("experiments_log.text", "a") as f:
+    with open("experiments_log_v2.text", "a") as f:
         train_line = "Epoch {}/{}:\nTrain Acc: {}%\t Training Loss: {}\t Learning Rate: {}\n".format(epoch, config['epochs'], round(train_accuracy, 4), round(train_loss,4), round(current_lr, 4))
         print(train_line)
         
@@ -187,7 +187,7 @@ for epoch in range(1, config['epochs'] + 1, 1):
             best_validation_accuracy = validation_accuracy
             
     #         saving checkpoint in wandb
-            wandb.save('dog_breed_id_checkpoint.pth')
+            wandb.save('dog_breed_id_checkpoint_v2.pth')
 f.close()
 
 run.finish()
