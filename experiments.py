@@ -61,10 +61,10 @@ labels = np.eye(120)[labels_num]
 
 gc.collect()
 transforms_args = [
-    transforms.Resize((224, 224)),
+    transforms.Resize((256, 256)),
     transforms.RandomHorizontalFlip(0.2),
     transforms.RandomVerticalFlip(0.2),
-    transforms.RandomRotation(45),
+    transforms.RandomRotation(30),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ]
@@ -96,7 +96,7 @@ gc.collect()
 for X, y in valid_loader:
     X, y = X.to(device), y.to(device)
 
-model = DogBreedNet(input_channels=3, num_classes=120, dense_dropout_p=.6).to(device)
+model = DogBreedNet(input_channels=3, num_classes=120, dense_dropout_p=.55).to(device)
 summary(model, input_size=X.shape[1:], batch_size=64)
 
 
@@ -104,7 +104,7 @@ summary(model, input_size=X.shape[1:], batch_size=64)
 train_loader = DataLoader(dataset=train_dataset,
                          batch_size=config["batch_size"],
                          shuffle=True,
-                         num_workers=2,
+                         num_workers=4,
                          pin_memory=True)
 
 valid_loader = DataLoader(dataset=valid_dataset,
@@ -145,13 +145,13 @@ wandb.login(key=os.getenv("WANDB_KEY"))
 run = wandb.init(
     name='{}'.format(uuid.uuid4()),
     reinit=True,
-    project='Dog-breed-ID-Log-V2',
+    project='Dog-breed-ID-Log-V3',
     config=config
 )
 
 # defining path where the model check point will be saved
 # model_checkpoint_path = os.path.join(ROOT_DATA_DIR, "dog_breed_id_checkpoint.pth") # running on kaggle
-model_checkpoint_path = os.path.join('checkpoints', "dog_breed_id_checkpoint_v2.pth") # running on AWS
+model_checkpoint_path = os.path.join('checkpoints', "dog_breed_id_checkpoint_v3.pth") # running on AWS
 
 # implementing training loop for experimentations
 print("\n\n")
@@ -160,7 +160,7 @@ for epoch in range(1, config['epochs'] + 1, 1):
     current_lr = optimizer.param_groups[0]['lr']
     train_accuracy, train_loss = training(model=model, optimizer=optimizer, train_data_loader=train_loader, scaler=scaler)
     
-    with open("experiments_log_v2.text", "a") as f:
+    with open("experiments_log_v3.text", "a") as f:
         train_line = "Epoch {}/{}:\nTrain Acc: {}%\t Training Loss: {}\t Learning Rate: {}\n".format(epoch, config['epochs'], round(train_accuracy, 4), round(train_loss,4), round(current_lr, 4))
         print(train_line)
         
@@ -187,7 +187,8 @@ for epoch in range(1, config['epochs'] + 1, 1):
             best_validation_accuracy = validation_accuracy
             
     #         saving checkpoint in wandb
-            wandb.save('dog_breed_id_checkpoint_v2.pth')
+            wandb.save('dog_breed_id_checkpoint_v3.pth')
+    scheduler.step()
 f.close()
 
 run.finish()

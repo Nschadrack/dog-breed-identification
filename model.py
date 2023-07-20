@@ -18,46 +18,52 @@ class DogBreedNet(nn.Module):
                 dense_dropout_p: the probability(percentage) of neurons to be dropped during in training in fully connected network(MLP)
         """
         super().__init__()
-        self.block_1 = nn.Sequential(nn.Conv2d(in_channels=input_channels, out_channels=512, kernel_size=5, stride=3, padding=0),
+        self.block_1 = nn.Sequential(nn.Conv2d(in_channels=input_channels, out_channels=128, kernel_size=3, stride=1, padding=0),
+                                  nn.ReLU(),
+                                  nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
                                   nn.MaxPool2d(kernel_size=2, stride=2),
-                                  nn.BatchNorm2d(512),
-                                   
-                                  nn.Conv2d(in_channels=512, out_channels=512, kernel_size=3, stride=2, padding=0),
-                                  nn.ReLU(),
-                                  nn.BatchNorm2d(512),
+                                  nn.BatchNorm2d(128)
                                   )
         
         
-        self.block_2 = nn.Sequential(nn.Conv2d(in_channels=512, out_channels=1024, kernel_size=3, stride=1, padding=0),
+        self.block_2 = nn.Sequential(nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.BatchNorm2d(1024),
-                                  
-                                  nn.Conv2d(in_channels=1024, out_channels=1024, kernel_size=3, stride=1, padding=1),
+                                  nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.BatchNorm2d(1024)
-                                  )
-        
-        self.block_3 = nn.Sequential(nn.Conv2d(in_channels=1024, out_channels=1024, kernel_size=3, stride=1, padding=1),
+                                  nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
                                   nn.MaxPool2d(kernel_size=2, stride=2),
-                                  nn.BatchNorm2d(1024)
+                                  nn.BatchNorm2d(256)
+                                  )
+        
+        self.block_3 = nn.Sequential(nn.Conv2d(in_channels=256, out_channels=512, kernel_size=5, stride=1, padding=0),
+                                  nn.ReLU(),
+                                  nn.Conv2d(in_channels=512, out_channels=512, kernel_size=5, stride=1, padding=0),
+                                  nn.ReLU(),
+                                  nn.Conv2d(in_channels=512, out_channels=512, kernel_size=5, stride=1, padding=0),
+                                  nn.ReLU(),
+                                  nn.MaxPool2d(kernel_size=2, stride=2)
+                                  )
+        
+        self.block_4 = nn.Sequential(nn.Conv2d(in_channels=512, out_channels=1024, kernel_size=3, stride=1, padding=0),
+                                  nn.ReLU(),
+                                  nn.Conv2d(in_channels=1024, out_channels=1024, kernel_size=3, stride=1, padding=0),
+                                  nn.ReLU(),
+                                  nn.AvgPool2d(kernel_size=2, stride=2)
                                   )
         
         self.flatten_layer = nn.Flatten()
         
-        self.mlp = nn.Sequential(nn.Linear(in_features = 1024 * 8 * 8, out_features=1024),
+        self.mlp = nn.Sequential(nn.Linear(in_features=1024 * 10 * 10, out_features=2048),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                               
-                              nn.Linear(in_features =1024, out_features=512),
+                              nn.Linear(in_features=2048, out_features=2048),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                                
-                              nn.Linear(in_features = 512, out_features=512),
-                              nn.ReLU(),
-                               
-                              nn.Linear(in_features = 512, out_features=num_classes)
+                              nn.Linear(in_features=2048, out_features=num_classes)
                               )
     
         self.softmax = nn.Softmax(dim=1)
@@ -71,6 +77,7 @@ class DogBreedNet(nn.Module):
         out = self.block_1(X)
         out = self.block_2(out)
         out = self.block_3(out)
+        out = self.block_4(out)
         out = self.flatten_layer(out)  # passing output of cnn layers to flatten layer
         out = self.mlp(out) # passing output of flatten layer to fully connected network
         out = self.softmax(out) # passing out of fully connected network to softmax for final logits

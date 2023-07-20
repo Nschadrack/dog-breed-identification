@@ -1,5 +1,5 @@
 config ={
-    "batch_size": 128,
+    "batch_size": 64,
     "epochs": 3500,
     "base_lr": 0.001,
     "max_lr": 0.1,
