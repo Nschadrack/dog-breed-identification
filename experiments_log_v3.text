@@ -1,0 +1,750 @@
+Epoch 1/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.001
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.001
+
+=======================================================================================================
+Epoch 2/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0059
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0059
+
+=======================================================================================================
+Epoch 3/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 4/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0158
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0158
+
+=======================================================================================================
+Epoch 5/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 6/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 7/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 8/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0357
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0357
+
+=======================================================================================================
+Epoch 9/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 10/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0456
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0456
+
+=======================================================================================================
+Epoch 11/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 12/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0554
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0554
+
+=======================================================================================================
+Epoch 13/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 14/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0653
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0653
+
+=======================================================================================================
+Epoch 15/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 16/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 17/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 18/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0852
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0852
+
+=======================================================================================================
+Epoch 19/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 20/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.0951
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0951
+
+=======================================================================================================
+Epoch 21/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.1
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.1
+
+=======================================================================================================
+Epoch 22/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0951
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0951
+
+=======================================================================================================
+Epoch 23/3500:
+Train Acc: 0.7202%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 24/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0852
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0852
+
+=======================================================================================================
+Epoch 25/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 26/3500:
+Train Acc: 0.8545%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 27/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 28/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.0653
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0653
+
+=======================================================================================================
+Epoch 29/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 30/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0554
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0554
+
+=======================================================================================================
+Epoch 31/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 32/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0456
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0456
+
+=======================================================================================================
+Epoch 33/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 34/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0357
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0357
+
+=======================================================================================================
+Epoch 35/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 36/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 37/3500:
+Train Acc: 0.7446%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 38/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0158
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0158
+
+=======================================================================================================
+Epoch 39/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 40/3500:
+Train Acc: 0.7446%	 Training Loss: nan	 Learning Rate: 0.0059
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0059
+
+=======================================================================================================
+Epoch 41/3500:
+Train Acc: 0.6958%	 Training Loss: nan	 Learning Rate: 0.001
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.001
+
+=======================================================================================================
+Epoch 42/3500:
+Train Acc: 0.7202%	 Training Loss: nan	 Learning Rate: 0.0059
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0059
+
+=======================================================================================================
+Epoch 43/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 44/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0159
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0159
+
+=======================================================================================================
+Epoch 45/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 46/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 47/3500:
+Train Acc: 0.7446%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 48/3500:
+Train Acc: 0.8545%	 Training Loss: nan	 Learning Rate: 0.0356
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0356
+
+=======================================================================================================
+Epoch 49/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 50/3500:
+Train Acc: 0.8789%	 Training Loss: nan	 Learning Rate: 0.0456
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0456
+
+=======================================================================================================
+Epoch 51/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 52/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0554
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0554
+
+=======================================================================================================
+Epoch 53/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 54/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0654
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0654
+
+=======================================================================================================
+Epoch 55/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 56/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 57/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 58/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0851
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0851
+
+=======================================================================================================
+Epoch 59/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 60/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0951
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0951
+
+=======================================================================================================
+Epoch 61/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.1
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.1
+
+=======================================================================================================
+Epoch 62/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0951
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0951
+
+=======================================================================================================
+Epoch 63/3500:
+Train Acc: 0.6958%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 64/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0851
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0851
+
+=======================================================================================================
+Epoch 65/3500:
+Train Acc: 0.8667%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 66/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 67/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 68/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0654
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0654
+
+=======================================================================================================
+Epoch 69/3500:
+Train Acc: 0.7202%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 70/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0554
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0554
+
+=======================================================================================================
+Epoch 71/3500:
+Train Acc: 0.8667%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 72/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0456
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0456
+
+=======================================================================================================
+Epoch 73/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 74/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.0356
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0356
+
+=======================================================================================================
+Epoch 75/3500:
+Train Acc: 0.8545%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 76/3500:
+Train Acc: 0.7202%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 77/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 78/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0159
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0159
+
+=======================================================================================================
+Epoch 79/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 80/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0059
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0059
+
+=======================================================================================================
+Epoch 81/3500:
+Train Acc: 0.7202%	 Training Loss: nan	 Learning Rate: 0.001
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.001
+
+=======================================================================================================
+Epoch 82/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0059
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0059
+
+=======================================================================================================
+Epoch 83/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 84/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0159
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0159
+
+=======================================================================================================
+Epoch 85/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 86/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 87/3500:
+Train Acc: 0.6958%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 88/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0356
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0356
+
+=======================================================================================================
+Epoch 89/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 90/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0456
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0456
+
+=======================================================================================================
+Epoch 91/3500:
+Train Acc: 0.7202%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 92/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0554
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0554
+
+=======================================================================================================
+Epoch 93/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 94/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0654
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0654
+
+=======================================================================================================
+Epoch 95/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 96/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 97/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 98/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0851
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0851
+
+=======================================================================================================
+Epoch 99/3500:
+Train Acc: 0.8789%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 100/3500:
+Train Acc: 0.708%	 Training Loss: nan	 Learning Rate: 0.0951
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0951
+
+=======================================================================================================
+Epoch 101/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.1
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.1
+
+=======================================================================================================
+Epoch 102/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0951
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0951
+
+=======================================================================================================
+Epoch 103/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 104/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0851
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0851
+
+=======================================================================================================
+Epoch 105/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 106/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 107/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 108/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0654
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0654
+
+=======================================================================================================
+Epoch 109/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 110/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0554
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0554
+
+=======================================================================================================
+Epoch 111/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 112/3500:
+Train Acc: 0.8545%	 Training Loss: nan	 Learning Rate: 0.0456
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0456
+
+=======================================================================================================
+Epoch 113/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 114/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0356
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0356
+
+=======================================================================================================
+Epoch 115/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 116/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 117/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 118/3500:
+Train Acc: 0.8789%	 Training Loss: nan	 Learning Rate: 0.0159
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0159
+
+=======================================================================================================
+Epoch 119/3500:
+Train Acc: 0.7446%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 120/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0059
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0059
+
+=======================================================================================================
+Epoch 121/3500:
+Train Acc: 0.8545%	 Training Loss: nan	 Learning Rate: 0.001
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.001
+
+=======================================================================================================
+Epoch 122/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.006
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.006
+
+=======================================================================================================
+Epoch 123/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0109
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0109
+
+=======================================================================================================
+Epoch 124/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0159
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0159
+
+=======================================================================================================
+Epoch 125/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0208
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0208
+
+=======================================================================================================
+Epoch 126/3500:
+Train Acc: 0.7324%	 Training Loss: nan	 Learning Rate: 0.0258
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0258
+
+=======================================================================================================
+Epoch 127/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0307
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0307
+
+=======================================================================================================
+Epoch 128/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0356
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0356
+
+=======================================================================================================
+Epoch 129/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0406
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0406
+
+=======================================================================================================
+Epoch 130/3500:
+Train Acc: 0.8789%	 Training Loss: nan	 Learning Rate: 0.0455
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0455
+
+=======================================================================================================
+Epoch 131/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.0505
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0505
+
+=======================================================================================================
+Epoch 132/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0555
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0555
+
+=======================================================================================================
+Epoch 133/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 134/3500:
+Train Acc: 0.769%	 Training Loss: nan	 Learning Rate: 0.0654
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0654
+
+=======================================================================================================
+Epoch 135/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 136/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 137/3500:
+Train Acc: 0.8179%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 138/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0851
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0851
+
+=======================================================================================================
+Epoch 139/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 140/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.095
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.095
+
+=======================================================================================================
+Epoch 141/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.1
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.1
+
+=======================================================================================================
+Epoch 142/3500:
+Train Acc: 0.7812%	 Training Loss: nan	 Learning Rate: 0.095
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.095
+
+=======================================================================================================
+Epoch 143/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0901
+Validation Acc: 0.7812%	 Validation Loss: 4.7938	 Learning Rate: 0.0901
+
+=======================================================================================================
+Epoch 144/3500:
+Train Acc: 0.6958%	 Training Loss: nan	 Learning Rate: 0.0851
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0851
+
+=======================================================================================================
+Epoch 145/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0802
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0802
+
+=======================================================================================================
+Epoch 146/3500:
+Train Acc: 0.8057%	 Training Loss: nan	 Learning Rate: 0.0753
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0753
+
+=======================================================================================================
+Epoch 147/3500:
+Train Acc: 0.7935%	 Training Loss: nan	 Learning Rate: 0.0703
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0703
+
+=======================================================================================================
+Epoch 148/3500:
+Train Acc: 0.8423%	 Training Loss: nan	 Learning Rate: 0.0654
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0654
+
+=======================================================================================================
+Epoch 149/3500:
+Train Acc: 0.8301%	 Training Loss: nan	 Learning Rate: 0.0604
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0604
+
+=======================================================================================================
+Epoch 150/3500:
+Train Acc: 0.7568%	 Training Loss: nan	 Learning Rate: 0.0555
+Validation Acc: 0.7812%	 Validation Loss: 4.7939	 Learning Rate: 0.0555
+
+=======================================================================================================

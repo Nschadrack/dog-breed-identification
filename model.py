@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+import torchvision.models as models
 
 
 # defining model architecture
@@ -27,46 +28,44 @@ class DogBreedNet(nn.Module):
                                   )
         
         
-        self.block_2 = nn.Sequential(nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1, padding=0),
+        self.block_2 = nn.Sequential(nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=0),
+                                  nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, stride=1, padding=0),
+                                  nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
                                   nn.MaxPool2d(kernel_size=2, stride=2),
-                                  nn.BatchNorm2d(256)
+                                  nn.BatchNorm2d(128)
                                   )
         
-        self.block_3 = nn.Sequential(nn.Conv2d(in_channels=256, out_channels=512, kernel_size=5, stride=1, padding=0),
+        self.block_3 = nn.Sequential(nn.Conv2d(in_channels=128, out_channels=256, kernel_size=5, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.Conv2d(in_channels=512, out_channels=512, kernel_size=5, stride=1, padding=0),
+                                  nn.Conv2d(in_channels=256, out_channels=256, kernel_size=5, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.Conv2d(in_channels=512, out_channels=512, kernel_size=5, stride=1, padding=0),
+                                  nn.Conv2d(in_channels=256, out_channels=256, kernel_size=5, stride=1, padding=0),
                                   nn.ReLU(),
                                   nn.MaxPool2d(kernel_size=2, stride=2)
                                   )
         
-        self.block_4 = nn.Sequential(nn.Conv2d(in_channels=512, out_channels=1024, kernel_size=3, stride=1, padding=0),
+        self.block_4 = nn.Sequential(nn.Conv2d(in_channels=256, out_channels=512, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
-                                  nn.Conv2d(in_channels=1024, out_channels=1024, kernel_size=3, stride=1, padding=0),
+                                  nn.Conv2d(in_channels=512, out_channels=512, kernel_size=3, stride=1, padding=0),
                                   nn.ReLU(),
                                   nn.AvgPool2d(kernel_size=2, stride=2)
                                   )
         
         self.flatten_layer = nn.Flatten()
         
-        self.mlp = nn.Sequential(nn.Linear(in_features=1024 * 10 * 10, out_features=2048),
+        self.mlp = nn.Sequential(nn.Linear(in_features=512 * 10 * 10, out_features=1024),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                               
-                              nn.Linear(in_features=2048, out_features=2048),
+                              nn.Linear(in_features=1024, out_features=2048),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                                
                               nn.Linear(in_features=2048, out_features=num_classes)
                               )
-    
-        self.softmax = nn.Softmax(dim=1)
         
     def forward(self, X):
         """
@@ -80,6 +79,23 @@ class DogBreedNet(nn.Module):
         out = self.block_4(out)
         out = self.flatten_layer(out)  # passing output of cnn layers to flatten layer
         out = self.mlp(out) # passing output of flatten layer to fully connected network
-        out = self.softmax(out) # passing out of fully connected network to softmax for final logits
         
         return out
+
+def create_model(num_classes, dense_dropout_p):
+    resnet = models.resnet101(pretrained=True)
+    for param in resnet.parameters():
+        param.requires_grad = False
+
+    num_features = resnet.fc.in_features
+    resnet.fc = nn.Sequential(nn.Linear(in_features=num_features, out_features=2048),
+                              nn.ReLU(),
+                              nn.Dropout(dense_dropout_p),
+                              
+                              nn.Linear(in_features=2048, out_features=2048),
+                              nn.ReLU(),
+                              nn.Dropout(dense_dropout_p),
+                               
+                              nn.Linear(in_features=2048, out_features=num_classes)
+                              )
+    return resnet

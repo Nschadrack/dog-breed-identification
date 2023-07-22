@@ -10,7 +10,7 @@ import uuid
 import gc
 import torch
 from torch import optim
-from torch.optim.lr_scheduler import CyclicLR
+from torch.optim.lr_scheduler import StepLR
 from torch.cuda.amp import GradScaler
  
 from torch import nn
@@ -21,7 +21,7 @@ from config import config
 
 from dataset_classes import TrainDogBreedDataset, TestDogBreedDataset
 from utils import training, validating, test_model, calculate_accuracy, calculate_loss, load_model_checkpoint, save_model_checkpoint
-from model import DogBreedNet
+from model import DogBreedNet, create_model
 
 
 warnings.simplefilter('ignore')
@@ -60,23 +60,29 @@ labels = np.eye(120)[labels_num]
 
 
 gc.collect()
-transforms_args = [
-    transforms.Resize((256, 256)),
-    transforms.RandomHorizontalFlip(0.2),
-    transforms.RandomVerticalFlip(0.2),
-    transforms.RandomRotation(30),
+train_transforms_args = [
+    transforms.RandomResizedCrop(256),
+    transforms.RandomRotation(45),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomVerticalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+]
+valid_transforms_args = [
+    transforms.Resize(256),
+    transforms.CenterCrop(256),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ]
 train_dataset = TrainDogBreedDataset(root_dir=TRAIN_DATA_DIR, 
                                      partition="train",
                                     labels=labels,
-                                    transform=transforms_args)
+                                    transform=train_transforms_args)
 
 valid_dataset = TrainDogBreedDataset(root_dir=TRAIN_DATA_DIR, 
                                      partition="train",
                                     labels=labels,
-                                    transform=transforms_args,
+                                    transform=valid_transforms_args,
                                     training_data=False)
 
 
@@ -97,6 +103,7 @@ for X, y in valid_loader:
     X, y = X.to(device), y.to(device)
 
 model = DogBreedNet(input_channels=3, num_classes=120, dense_dropout_p=.55).to(device)
+# model = create_model(120, .55).to(device)
 summary(model, input_size=X.shape[1:], batch_size=64)
 
 
@@ -130,11 +137,15 @@ valid_loader = DataLoader(dataset=valid_dataset,
 gc.collect()
 torch.cuda.empty_cache()
 # Defining optimizer
-optimizer = optim.Adam(params=model.parameters(), lr=config['base_lr'], weight_decay=config['weight_decay'])
+optimizer = optim.SGD(params=model.parameters(), 
+                      lr=config['lr'], 
+                      weight_decay=config['weight_decay'], 
+                      momentum=0.9)
 
 # Defining scheduler
-scheduler = CyclicLR(optimizer, base_lr=config['base_lr'], max_lr=config['max_lr'], step_size_up=20, 
-                     mode='triangular', cycle_momentum=False)
+# scheduler = StepLR(optimizer, base_lr=config['base_lr'], max_lr=config['max_lr'], step_size_up=20, 
+#                      mode='triangular', cycle_momentum=False)
+scheduler = StepLR(optimizer, step_size=50)
 
 # Defining scaler
 scaler = GradScaler()
@@ -143,15 +154,15 @@ scaler = GradScaler()
 load_dotenv(os.path.join(os.getcwd(), '.env'))
 wandb.login(key=os.getenv("WANDB_KEY"))
 run = wandb.init(
-    name='{}'.format(uuid.uuid4()),
+    name='{}'.format(str(uuid.uuid4())[:12]),
     reinit=True,
-    project='Dog-breed-ID-Log-V3',
+    project='Dog-breed-ID-Log-V5',
     config=config
 )
 
 # defining path where the model check point will be saved
 # model_checkpoint_path = os.path.join(ROOT_DATA_DIR, "dog_breed_id_checkpoint.pth") # running on kaggle
-model_checkpoint_path = os.path.join('checkpoints', "dog_breed_id_checkpoint_v3.pth") # running on AWS
+model_checkpoint_path = os.path.join('checkpoints', "dog_breed_id_checkpoint_v4.pth") # running on AWS
 
 # implementing training loop for experimentations
 print("\n\n")
@@ -160,7 +171,7 @@ for epoch in range(1, config['epochs'] + 1, 1):
     current_lr = optimizer.param_groups[0]['lr']
     train_accuracy, train_loss = training(model=model, optimizer=optimizer, train_data_loader=train_loader, scaler=scaler)
     
-    with open("experiments_log_v3.text", "a") as f:
+    with open("experiments_log_v4.text", "a") as f:
         train_line = "Epoch {}/{}:\nTrain Acc: {}%\t Training Loss: {}\t Learning Rate: {}\n".format(epoch, config['epochs'], round(train_accuracy, 4), round(train_loss,4), round(current_lr, 4))
         print(train_line)
         
@@ -187,7 +198,7 @@ for epoch in range(1, config['epochs'] + 1, 1):
             best_validation_accuracy = validation_accuracy
             
     #         saving checkpoint in wandb
-            wandb.save('dog_breed_id_checkpoint_v3.pth')
+            wandb.save('dog_breed_id_checkpoint_v4.pth')
     scheduler.step()
 f.close()
 

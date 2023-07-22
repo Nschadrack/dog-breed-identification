@@ -31,7 +31,7 @@ class TrainDogBreedDataset(Dataset):
         
         # reading images from the directory and convert them into PIL images
         image_filenames = os.listdir(self.root_dir)
-        num_of_training_samples = int(0.8 * len(image_filenames))
+        num_of_training_samples = int(0.7 * len(image_filenames))
         if training_data:
             image_filenames = image_filenames[: num_of_training_samples]
             self.labels = labels[: num_of_training_samples]

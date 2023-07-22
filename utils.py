@@ -57,6 +57,7 @@ def calculate_loss(logits, true_labels):
      
      return: calculated loss
     """
+    true_labels = true_labels.argmax(dim=1)
     loss = nn.CrossEntropyLoss()
     return loss(logits, true_labels)
 
@@ -69,7 +70,13 @@ def calculate_accuracy(logits, true_labels):
     """
     predicted_classes = logits.argmax(dim=1)
     true_classes = true_labels.argmax(dim=1)
-    correct_predictions = (predicted_classes == true_classes).sum().item()
+    with open("data_test", "a") as f:
+        f.write(f"\nPredicted classes: \n{predicted_classes.numpy()}\n\n")
+        f.write(f"Labels: \n{true_classes.numpy()}\n\n")
+        
+        correct_predictions = (predicted_classes == true_classes).sum().item()
+        f.write(f"\nCorrect predictions: {correct_predictions}")
+        f.write("\n===========================================================\n")
     
     return correct_predictions
 
@@ -86,12 +93,14 @@ def training(model, optimizer, train_data_loader, scaler):
     model.train()  # putting model in the training mode
     num_correct = 0
     training_loss = 0
+    total = 0
     
     # progress bar for batch
     batch_bar = tqdm(total=len(train_data_loader), dynamic_ncols=True, leave=False, position=0, ncols=5, 
                      desc="Train", unit=" images")
     for index, (images, true_labels) in enumerate(train_data_loader):
         images, true_labels = images.to(device, non_blocking=True), true_labels.to(device)
+        total += true_labels.size(0)
         optimizer.zero_grad()
         with torch.cuda.amp.autocast():
             logits = model(images)
@@ -101,7 +110,7 @@ def training(model, optimizer, train_data_loader, scaler):
         num_correct += int(calculate_accuracy(logits, true_labels))
         
         batch_bar.set_postfix(
-            accuracy="{}%".format(round((100*num_correct) / (config['batch_size'] * (index + 1)), 4)),
+            accuracy="{}%".format(round((100*num_correct) / total, 4)),
             num_correct=num_correct,
             loss= "{}".format(round(training_loss / (index + 1), 4)),
             learning_rate=f"{optimizer.param_groups[0]['lr']}"
@@ -113,7 +122,7 @@ def training(model, optimizer, train_data_loader, scaler):
         
         batch_bar.update()
     batch_bar.close()
-    acc = (100 * num_correct) / (len(train_data_loader) * config['batch_size'])
+    acc = (100 * num_correct) / total
     training_loss = training_loss / len(train_data_loader) 
     
     return acc, training_loss 
@@ -127,11 +136,12 @@ def validating(model, valid_data_loader):
     """
     model = model.to(device, non_blocking=True)
     model.eval() # putting the model into evaluation mode
-    validation_loss, num_correct = 0, 0
+    validation_loss, num_correct, total = 0, 0, 0
     batch_bar = tqdm(total=len(valid_data_loader), desc="Valid", position=0, dynamic_ncols=True, 
                      ncols=7, leave=False, unit=' images')
     for index, (images, true_labels) in enumerate(valid_data_loader):
         images, true_labels = images.to(device, non_blocking=True), true_labels.to(device)
+        total += true_labels.size(0)
         with torch.inference_mode():
             logits = model(images)
             loss = loss = calculate_loss(logits, true_labels)
@@ -139,14 +149,14 @@ def validating(model, valid_data_loader):
         validation_loss += float(loss.item())
         num_correct += int(calculate_accuracy(logits, true_labels))
         batch_bar.set_postfix(
-            accuracy="{}%".format(round((100*num_correct) / (config['batch_size'] * (index + 1)), 4)),
+            accuracy="{}%".format(round((100*num_correct) / total, 4)),
             num_correct=num_correct,
             loss= "{}".format(round(validation_loss / (index + 1), 4))
         )
         
         batch_bar.update()
     batch_bar.close()
-    valid_acc = (100 * num_correct) / (config['batch_size'] * len(valid_data_loader))
+    valid_acc = (100 * num_correct) / total
     validation_loss =  validation_loss / len(valid_data_loader)
     
     return valid_acc, validation_loss 
