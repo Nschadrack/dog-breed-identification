@@ -84,15 +84,9 @@ class DogBreedNet(nn.Module):
 
 def create_model(num_classes, dense_dropout_p):
     resnet = models.resnet101(pretrained=True)
-    for param in resnet.parameters():
-        param.requires_grad = False
 
     num_features = resnet.fc.in_features
     resnet.fc = nn.Sequential(nn.Linear(in_features=num_features, out_features=2048),
-                              nn.ReLU(),
-                              nn.Dropout(dense_dropout_p),
-                              
-                              nn.Linear(in_features=2048, out_features=2048),
                               nn.ReLU(),
                               nn.Dropout(dense_dropout_p),
                                

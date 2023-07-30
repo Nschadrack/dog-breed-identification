@@ -57,7 +57,6 @@ def calculate_loss(logits, true_labels):
      
      return: calculated loss
     """
-    true_labels = true_labels.argmax(dim=1)
     loss = nn.CrossEntropyLoss()
     return loss(logits, true_labels)
 
@@ -69,12 +68,11 @@ def calculate_accuracy(logits, true_labels):
      :param true_labels: are the expected label
     """
     predicted_classes = logits.argmax(dim=1)
-    true_classes = true_labels.argmax(dim=1)
-    with open("data_test", "a") as f:
-        f.write(f"\nPredicted classes: \n{predicted_classes.numpy()}\n\n")
-        f.write(f"Labels: \n{true_classes.numpy()}\n\n")
+    with open("data_test_v10", "a") as f:
+        f.write(f"\nPredicted classes: \n{predicted_classes.detach().cpu().numpy()}\n\n")
+        f.write(f"Labels: \n{true_labels.detach().cpu().numpy()}\n\n")
         
-        correct_predictions = (predicted_classes == true_classes).sum().item()
+        correct_predictions = (predicted_classes == true_labels).sum().item()
         f.write(f"\nCorrect predictions: {correct_predictions}")
         f.write("\n===========================================================\n")
     
@@ -134,7 +132,7 @@ def validating(model, valid_data_loader):
      :param model: the model to be validated
      :param valid_data_loader: the loader containing data to be used during validation
     """
-    model = model.to(device, non_blocking=True)
+    model = model.to(device)
     model.eval() # putting the model into evaluation mode
     validation_loss, num_correct, total = 0, 0, 0
     batch_bar = tqdm(total=len(valid_data_loader), desc="Valid", position=0, dynamic_ncols=True, 
@@ -144,7 +142,7 @@ def validating(model, valid_data_loader):
         total += true_labels.size(0)
         with torch.inference_mode():
             logits = model(images)
-            loss = loss = calculate_loss(logits, true_labels)
+            loss = calculate_loss(logits, true_labels)
         
         validation_loss += float(loss.item())
         num_correct += int(calculate_accuracy(logits, true_labels))

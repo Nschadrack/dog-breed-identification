@@ -2,88 +2,72 @@ import numpy as np
 
 import warnings
 import os
-import torch
- 
-from torch import nn
 from PIL import Image
-from torchvision import transforms
-from torch.utils.data import Dataset
+import collections
+import shutil
+import math
 
 warnings.simplefilter('ignore')
 
 
-class TrainDogBreedDataset(Dataset):
-    """
-        Dataset class for transforming images into tensors for training
-    """
-    def __init__(self, root_dir: str, partition: str, labels: np.ndarray, transform: list=[], training_data=True):
-        """
-            params:
-                root_dir: is the root directory containing individual image names(not subdirectories)
-                labels: numpy 2D array containing one-hot encoded image labels and ech 1D indice corresponds to 
-                the indice or position of target image in the root directory
-                transform: list of different transformation/data argumentations to be applied on the images
-        """
-        
-        self.root_dir = root_dir
-        self.transforms = transforms.Compose(transform)
-        self.images = []  
-        
-        # reading images from the directory and convert them into PIL images
-        image_filenames = os.listdir(self.root_dir)
-        num_of_training_samples = int(0.7 * len(image_filenames))
-        if training_data:
-            image_filenames = image_filenames[: num_of_training_samples]
-            self.labels = labels[: num_of_training_samples]
+def copyfile(filename, target_dir):
+    """Copy a file into a target directory."""
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+    shutil.copy(filename, target_dir)
+
+
+def reorg_train_valid(data_dir, labels, valid_ratio):
+    """Split the validation set out of the original training set."""
+    # The number of examples of the class that has the fewest examples in the
+    # training dataset
+    n = collections.Counter(labels.values()).most_common()[-1][1]
+    # The number of examples per class for the validation set
+    n_valid_per_label = max(1, math.floor(n * valid_ratio))
+    label_count = {}
+    for train_file in os.listdir(os.path.join(data_dir, 'train')):
+        label = labels[train_file.split('.')[0]]
+        fname = os.path.join(data_dir, 'train', train_file)
+        copyfile(fname, os.path.join(data_dir, 'train_valid_test',
+                                     'train_valid', label))
+        if label not in label_count or label_count[label] < n_valid_per_label:
+            copyfile(fname, os.path.join(data_dir, 'train_valid_test',
+                                         'valid', label))
+            label_count[label] = label_count.get(label, 0) + 1
         else:
-            image_filenames = image_filenames[num_of_training_samples: ]
-            self.labels = labels[num_of_training_samples: ]
-                
-        for image_filename in image_filenames:
-            image = Image.open(os.path.join(self.root_dir, image_filename))
-            image = self.transforms(image)
-            self.images.append(image)
+            copyfile(fname, os.path.join(data_dir, 'train_valid_test',
+                                         'train', label))
+    return n_valid_per_label
 
+
+def reorg_test(data_dir):
+    """Organize the testing set for data loading during prediction."""
+    for test_file in os.listdir(os.path.join(data_dir, 'test')):
+        copyfile(os.path.join(data_dir, 'test', test_file),
+                 os.path.join(data_dir, 'train_valid_test', 'test',
+                              'unknown'))
         
-    def __len__(self):
-        return len(self.images)
-    
-    def __getitem__(self, index):
-        return self.images[index], self.labels[index]
-    
-    def denormalize(self, mean, std):
-        denormalized_images = []
-        denormalize_ = transforms.Normalize(mean=[-m / s for m, s in zip(mean, std)],std=[1 / s for s in std])
-        for index, image in enumerate(self.images):
-            denormalized_images.append(denormalize_(image))
-        return denormalized_images
+def read_csv_labels(fname):
+    """Read `fname` to return a filename to label dictionary."""
+    with open(fname, 'r') as f:
+        # Skip the file header line (column name)
+        lines = f.readlines()[1:]
+    tokens = [l.rstrip().split(',') for l in lines]
+    return dict(((name, label) for name, label in tokens))
 
 
-class TestDogBreedDataset(Dataset):
-    """
-        Dataset class for transforming images into tensors for testing
-    """
-    def __init__(self, root_dir: str, partition: str, transform:list=[]):
-        """
-            params:
-                root_dir: is the root directory containing individual image names(not subdirectories)
-                transform: list of different transformation/data argumentations to be applied on the images
-        """
-        self.root_dir = root_dir
-        self.transforms = transforms.Compose(transform)
-        self.images = []
+def reorg_dog_data(data_dir, labels, valid_ratio):
+    reorg_train_valid(data_dir, labels, valid_ratio)
+    reorg_test(data_dir)
 
-        # reading images from the directory and convert them into PIL images
-        image_filenames = os.listdir(self.root_dir)
-        for image_filename in image_filenames:
-            image = Image.open(os.path.join(self.root_dir, image_filename))
-            image = self.transforms(image)
-            self.images.append(image)
 
-        
-    def __len__(self):
-        return len(self.images)
-    
-    def __getitem__(self, index):
-        return self.images[index]
+if __name__ == "__main__":
+    ROOT_DATA_DIR = 'data'
+    TEST_DATA_DIR = os.path.join(ROOT_DATA_DIR, 'test')
+    TRAIN_DATA_DIR = os.path.join(ROOT_DATA_DIR, 'train')
+
+    valid_ratio = 0.2
+
+    labels = read_csv_labels(os.path.join(ROOT_DATA_DIR, 'labels.csv'))
+    reorg_dog_data(ROOT_DATA_DIR, labels, valid_ratio)
     
