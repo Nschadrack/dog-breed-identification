@@ -68,7 +68,7 @@ def calculate_accuracy(logits, true_labels):
      :param true_labels: are the expected label
     """
     predicted_classes = logits.argmax(dim=1)
-    with open("data_test_v10", "a") as f:
+    with open("data_test_v11", "a") as f:
         f.write(f"\nPredicted classes: \n{predicted_classes.detach().cpu().numpy()}\n\n")
         f.write(f"Labels: \n{true_labels.detach().cpu().numpy()}\n\n")
         

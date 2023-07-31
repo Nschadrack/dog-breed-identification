@@ -66,7 +66,7 @@ if __name__ == "__main__":
     TEST_DATA_DIR = os.path.join(ROOT_DATA_DIR, 'test')
     TRAIN_DATA_DIR = os.path.join(ROOT_DATA_DIR, 'train')
 
-    valid_ratio = 0.2
+    valid_ratio = 0.3
 
     labels = read_csv_labels(os.path.join(ROOT_DATA_DIR, 'labels.csv'))
     reorg_dog_data(ROOT_DATA_DIR, labels, valid_ratio)
